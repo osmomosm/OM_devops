@@ -8,7 +8,7 @@ pipeline {
         }
         stage ("Deployment") {
             steps{
-               echo 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 | sudo -S  "cp -r /var/lib/jenkins/workspace/new-web-app/ /var/www/html/"
+               echo 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 | sudo -S  cp -r /var/lib/jenkins/workspace/new-web-app/ /var/www/html/
             }
                 
         }
