@@ -2,13 +2,13 @@ pipeline {
     agent any
     stages {
         stage("checkout") {
-            steps{
+            steps {
                 checkout scm
             }
         }
-        stage("Deployment") {
+        stage ("Deployment") {
             steps{
-                sh "sudo cp -r /var/lib/jenkins/workspace/om-app-web/PHOTOSEC/ /var/www/html/"
+                sh "sudo cp -r /var/lib/jenkins/workspace/om-app-web/* /var/www/html/"
             }
                 
         }
