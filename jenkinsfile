@@ -1,0 +1,16 @@
+pipeline {
+    agent any
+    stages {
+        stage("checkout") {
+            steps{
+                checkout scm
+            }
+        }
+        stage("Deployment") {
+            steps{
+                sh "sudo cp -r /var/lib/jenkins/workspace/om-app-web/PHOTOSEC/ /var/www/html/"
+            }
+                
+        }
+    }
+}
