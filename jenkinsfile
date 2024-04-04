@@ -8,7 +8,7 @@ pipeline {
         }
         stage ("Deployment") {
             steps{
-                sh "sudo cp -r /var/lib/jenkins/workspace/new-web-app/ /var/www/html/"
+                sh "sudo su cp -r /var/lib/jenkins/workspace/new-web-app/ /var/www/html/"
             }
                 
         }
