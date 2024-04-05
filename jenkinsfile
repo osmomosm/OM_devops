@@ -6,6 +6,13 @@ pipeline {
                 checkout scm
             }
         }
+        stage ("Approval") {
+            steps {
+                timeout(time: 1, unit:"MINUTES") {
+                    input message: 'Do you want to approve the deployment?', ok: 'Yes'
+                }
+            }
+        }
         stage ("Deployment") {
             steps{
                sh "sudo cp -r /var/lib/jenkins/workspace/om-app-web/* /var/www/html/"
@@ -13,4 +20,13 @@ pipeline {
                 
         }
     }
-}
+    post {
+        success {
+            echo "The Deployment is success"
+        }
+        failure {
+            echo "The Deployment got failed"
+        }
+    }
+ }
+
